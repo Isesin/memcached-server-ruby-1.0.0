@@ -24,9 +24,10 @@ In your terminal, type: rspec
 ## How to run:
 ### Server:
 In your terminal, type: ruby memcached-server.rb <"hostname / IP"> <"port">
+Example: ruby memcached-server.rb localhost 123456
 ### Client:
 In your terminal, type: ruby memcached-client.rb <"hostname / IP"> <"port">
-
+Example: ruby memcached-client.rb localhost 123456
 ## Using Memcached:
 The Client sends certain commands:
 

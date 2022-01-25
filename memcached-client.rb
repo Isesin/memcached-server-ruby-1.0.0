@@ -1,7 +1,6 @@
 
 require 'socket'
-require_relative '../memcached-server.rb'
-
+require_relative './server/memcached-server.rb'
 
 host = ARGV[0]
 port = ARGV[1]

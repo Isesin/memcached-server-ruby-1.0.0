@@ -12,18 +12,17 @@ RSpec.describe Memcached do
 
     end
 
-    describe "#purge_keys" do
+    describe "#purgeKeys" do
              
         context "when success" do
             let(:expired_item)   { Item.new("key", 0, -1, 3, "val") }
             let(:item_to_expire) { Item.new("kee", 0, 0.1, 3, "val") }
-            
             before(:each) do 
                 @storage.store(:key, expired_item)
                 @storage.store(:kee, item_to_expire)
         
                 sleep(0.1)
-                @memcache.purge_keys()
+                @memcache.purgeKeys()
             end
             
             it "purges expired keys in storage" do
@@ -43,7 +42,7 @@ RSpec.describe Memcached do
             let(:reply_stored) { @memcache.cas("a", 0, 0, 3, 1, "val") }
 
             it "responds with STORED" do
-                expect(reply_stored).to eq Reply::STORED
+                expect(reply_stored).to eq ServerReply::STORED
             end
         end
         
@@ -52,11 +51,11 @@ RSpec.describe Memcached do
             let(:reply_not_found) { @memcache.cas("b", 0, 0, 3, 1, "val") }
 
             it "responds with EXISTS" do
-                expect(reply_exists).to eq Reply::EXISTS                
+                expect(reply_exists).to eq ServerReply::EXISTS                
             end
 
             it "responds with NOT_FOUND" do
-                expect(reply_not_found).to eq Reply::NOT_FOUND 
+                expect(reply_not_found).to eq ServerReply::NOT_FOUND 
             end
         end
     end
@@ -211,12 +210,12 @@ RSpec.describe Memcached do
         end
     end
 
-    describe "#store_item" do
+    describe "#storeItem" do
 
         context "when success" do
             before(:each) do
-                @memcache.store_item("a", 0, 600, 3, "val")
-                @memcache.store_item("b", 0, 0, 3, "val")
+                @memcache.storeItem("a", 0, 600, 3, "val")
+                @memcache.storeItem("b", 0, 0, 3, "val")
             end
 
             it "stores two items" do
@@ -226,7 +225,7 @@ RSpec.describe Memcached do
 
         context "when failure" do
             before(:each) do
-                @memcache.store_item("c", 0, -1, 3, "val")
+                @memcache.storeItem("c", 0, -1, 3, "val")
             end
 
             it "does not store the expired item" do

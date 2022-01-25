@@ -2,7 +2,7 @@ require_relative '../../server/memcached-server.rb'
 include MemcachedServer
 
 RSpec.describe Item do
-    #TEST  de "expired?" linea 92 item.rb
+    #TEST  de "expired?" linea 50 item.rb
     describe "#expired?" do
 
         context "when expired" do

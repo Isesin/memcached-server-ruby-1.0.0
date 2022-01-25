@@ -17,7 +17,7 @@ module MemcachedServer
         def initialize(key,flags, exptime,bytes,input)
             @key = key
             @flags = flags
-            @exptime = get_expTime(exptime)
+            @exptime = get_exptime(exptime)
             @bytes = bytes
             @input = input
             #aplicando un "semaforo" para edicion de datos.
@@ -40,7 +40,7 @@ module MemcachedServer
         end
 
         #Revision de los parametros de EXP TIME
-        def get_expTime (exptime)
+        def get_exptime (exptime)
             return nil if exptime == 0
             return Time.now().getutc() if exptime < 0
             return Time.now().getutc() + exptime            
@@ -49,6 +49,7 @@ module MemcachedServer
         #Verifacion de EXP TIME
         def expired?()
             return true if (!exptime.nil?()) && (Time.now().getutc() > exptime)
+            return false
         end
     end
 end

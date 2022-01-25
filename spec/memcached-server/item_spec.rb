@@ -18,7 +18,9 @@ RSpec.describe Item do
 
             it "returns false" do
                 expect(not_expired_item.expired?).to be false
+
             end
+            
         end
 
         context "when never expires" do

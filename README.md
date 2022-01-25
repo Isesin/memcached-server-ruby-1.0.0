@@ -82,16 +82,21 @@ to indicate success.
 ### NOT_STORED: 
 the data wasn't stored.
 
-### EXISTS: indicate the item you are trying to store with CAS has been modified since you last fetched it.
+### EXISTS: 
+indicate the item you are trying to store with CAS has been modified since you last fetched it.
 
-### NOT_FOUND: the item your are trying to store witch a CAS did not exist.
+### NOT_FOUND: 
+the item your are trying to store witch a CAS did not exist.
 
 ## GETTING DATA:
 
-### get: command for retrieving data. Takes one or more keys and returns all found items.
+### get: 
+command for retrieving data. Takes one or more keys and returns all found items.
 
-### gets: an alternative get command for using with CAS. Returns a CAS identifier (a unique 64bit number) with the item. Return this value with the cas command. If the item's CAS value has changed since you gets'ed it, it will not be stored.
+### gets: 
+an alternative get command for using with CAS. Returns a CAS identifier (a unique 64bit number) with the item. Return this value with the cas command. If the item's CAS value has changed since you gets'ed it, it will not be stored.
 
 ## END COMMAND:
 
-### END: to end the session, use: END
+### END: 
+to end the session, use: END

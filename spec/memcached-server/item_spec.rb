@@ -2,10 +2,11 @@ require_relative '../../server/memcached-server.rb'
 include MemcachedServer
 
 RSpec.describe Item do
-    #TEST  de "expired?" linea 50 item.rb
+    #El test utiliza el metodo expired? establecido en item.rb
     describe "#expired?" do
 
         context "when expired" do
+            #Creamo un objeto "x" con una funcion con valores indistintos para probar el metodo.
             let(:expired_item) { Item.new("a", 0, -1, 5, "value") }
 
             it "returns true" do
@@ -14,6 +15,7 @@ RSpec.describe Item do
         end
 
         context "when not expired" do
+            #Creamo un objeto "x" con una funcion con valores indistintos para probar el metodo.
             let(:not_expired_item) { Item.new("a", 0, 600, 5, "value") }
 
             it "returns false" do
@@ -24,6 +26,7 @@ RSpec.describe Item do
         end
 
         context "when never expires" do
+            #Creamo un objeto "x" con una funcion con valores indistintos para probar el metodo.
             let(:never_expired_item) { Item.new("b", 0, 0, 5, "value") }
 
             it "returns false" do

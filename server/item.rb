@@ -13,7 +13,7 @@ module MemcachedServer
         #ESTABLECIENDO EL TOKEN 0
         @@lastcasToken = 0
 
-
+        #Metodo constructor
         def initialize(key,flags, exptime,bytes,input)
             @key = key
             @flags = flags

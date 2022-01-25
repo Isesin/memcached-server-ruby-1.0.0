@@ -5,6 +5,7 @@ include MemcachedServer
 RSpec.describe Server do
 
     before(:all) do
+        #Genera un servidor  asignando host y puerto.
         @server = Server.new('localhost', 2000)
     end
 
@@ -16,7 +17,7 @@ RSpec.describe Server do
                 valid_get: "get a b c\n",
                 valid_gets: "gets a b c\n",
                 valid_set: "set a 0 3600 3\n",
-                valid_add: "add a 0 3600 3\n",
+                valid_add: "add b 0 3600 3\n",
                 valid_replace: "replace a 0 3600 3\n",
                 valid_append: "append a 3\n",
                 valid_prepend: "prepend a 3\n",

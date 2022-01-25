@@ -3,11 +3,12 @@ require_relative './constants.rb'
 
 module MemcachedServer
 
-    # The class used to process Memcache commands and store the Memcache server data
+    # Creamos la clase que procese los comandos
+    # y almacenamiento segun Memcached
     class Memcached
 
 
-        #Definimos una clase Memcached con un un HASH.
+        #Definimos una clase Memcached con un constructor, un HASH.
         attr_reader :storage
 
         def initialize()

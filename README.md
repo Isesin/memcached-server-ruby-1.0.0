@@ -33,32 +33,32 @@ The Client sends certain commands:
 
 ### set:
 store this data, possibly overwriting any existing data. 
-```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: set mykey 0 0 7
+```<<command > <key> <bytes> [noreply]```  
+Example: set mykey 0 0 7 // input
 ### add: 
 store this data, only if it does not already exist.
-```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: add newkey 0 60 5
+```<<command > <key> <bytes> [noreply]```  
+Example: add newkey  5 // input
 
 ### replace: 
 store this data, but only if the data already exists. Almost never used, and exists for protocol completeness (set, add, replace, etc)
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: replace mykey 0 60 5
+Example: replace mykey 0 60 5 // input
 
 ### append: 
 add this data after the last byte in an existing item. This does not allow you to extend past the item limit. Useful for managing lists.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: append key 0 60 15
+Example: append mykey 0 60 15 // input
 
 ### prepend: 
 same as append, but adding new data before existing data.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: prepend key 0 60 15
+Example: prepend mykey 0 60 15 // input
 
 ### cas: 
 check And Set (or Compare And Swap). An operation that stores data, but only if no one else has updated the data since you read it last. Useful for resolving race conditions on updating cache data.
 ```<<command > <key> <flags> <exptime> <bytes> <casToken> [noreply]```  
-Example: cas mykey 0 900 9 2
+Example: cas mykey 0 900 9 2 // input
 
 ## Uses of:
 

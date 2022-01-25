@@ -24,7 +24,7 @@ In your terminal, type: ruby memcached-server.rb <hostname> <port>
 The Client sends certain commands:
 
 ### set: Set a key unconditionally
-<command > <key> <flags> <exptime> <bytes> [noreply]
+'''<command > <key> <flags> <exptime> <bytes> [noreply]'''
 
 ### add: Add a new key
 <command > <key> <flags> <exptime> <bytes> [noreply]
@@ -43,7 +43,7 @@ The Client sends certain commands:
 
 ## Uses of:
 
-### <key>: the client define it and under wich asks to store the data.
+### "<key>": the client define it and under wich asks to store the data.
 
 ### <flags>: is a 4byte space that is stored alongside of the main value.
 

@@ -33,7 +33,7 @@ The Client sends certain commands:
 
 ### set:
 store this data, possibly overwriting any existing data. 
-```<<command > <key> <flags> <exptime> <bytes> [noreply]```
+```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
 Example: set mykey 0 0 7
 ### add: 
 store this data, only if it does not already exist.

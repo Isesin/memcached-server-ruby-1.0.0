@@ -18,7 +18,7 @@ https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.3.tar.gz
 ### RSPEC: 3.10
 https://rubygems.org/gems/rspec/versions/3.10.0
 
-### To run all tests:
+## To run all tests:
 In your terminal, type: rspec
 
 ## How to run:

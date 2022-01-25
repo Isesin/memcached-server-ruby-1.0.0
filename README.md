@@ -104,6 +104,9 @@ indicate the item you are trying to store with CAS has been modified since you l
 ### NOT_FOUND: 
 the item your are trying to store witch a CAS did not exist.
 
+### ERROR:
+the command is invalid
+
 ## GETTING DATA:
 
 ### get: 

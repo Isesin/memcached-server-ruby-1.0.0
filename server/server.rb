@@ -60,7 +60,6 @@ module MemcachedServer
 
         #Ejecutamos un comando valido de Memcached establecido en memcache.rb
         def run_command(connection, validCommand)
-            #puts ("shrek:  #{validCommand}.")
             name = validCommand[:name]
 
             case name
@@ -120,7 +119,6 @@ module MemcachedServer
 
                 keys = validCommand[:keys].split(' ')
                 items = @mc.get(keys)
-                #puts ("shrek:  #{items}.")
 
                 for item in items
                     connection.puts(ServerReply::GETS % [item.key, item.flags, item.bytes, item.casToken, item.input]) if item

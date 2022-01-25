@@ -11,9 +11,12 @@ Memcached is a simply storage system that improve the App performance.
 https://memcached.org/
 
 ## Dependencies:
+Need to install
+### Ruby: 3.0.3
+https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.3.tar.gz
 
 ### RSPEC: 3.10
-https://rubygems.org/gems/rspec/versions/3.5.0?locale=es
+https://rubygems.org/gems/rspec/versions/3.10.0
 
 ### To run all tests:
 In your terminal, type: rspec

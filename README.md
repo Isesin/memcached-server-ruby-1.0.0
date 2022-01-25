@@ -13,7 +13,7 @@ https://memcached.org/
 ## Dependencies:
 Need to install
 ### Ruby: 3.0.3
-https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.3.tar.gz
+https://www.ruby-lang.org/es/documentation/installation/
 
 ### RSPEC: 3.10
 https://rubygems.org/gems/rspec/versions/3.10.0

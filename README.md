@@ -22,9 +22,16 @@ https://rubygems.org/gems/rspec/versions/3.10.0
 In your terminal, type: rspec
 
 ## How to run:
+1. Clone the repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+2. Install Ruby 3.0.3 without Devtools
+3. In VS terminal instal RSPEC: gem install rspec
+4. Run server:
+In 1 terminal:
 ### Server:
 In your terminal, type: ruby memcached-server.rb <"hostname / IP"> <"port">  
 Example: ruby memcached-server.rb localhost 123456
+
+In other, without closing the server:
 ### Client:
 In your terminal, type: ruby memcached-client.rb <"hostname / IP"> <"port">  
 Example: ruby memcached-client.rb localhost 123456
@@ -33,12 +40,12 @@ The Client sends certain commands:
 
 ### set:
 store this data, possibly overwriting any existing data. 
-```<<command > <key> <bytes> [noreply]```  
+```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
 Example: set mykey 0 0 7 // input
 ### add: 
 store this data, only if it does not already exist.
-```<<command > <key> <bytes> [noreply]```  
-Example: add newkey  5 // input
+```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
+Example: add newkey 0 60 5 // input
 
 ### replace: 
 store this data, but only if the data already exists. Almost never used, and exists for protocol completeness (set, add, replace, etc)
@@ -47,13 +54,13 @@ Example: replace mykey 0 60 5 // input
 
 ### append: 
 add this data after the last byte in an existing item. This does not allow you to extend past the item limit. Useful for managing lists.
-```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: append mykey 0 60 15 // input
+```<<command > <key> <bytes> [noreply]```  
+Example: append mykey 15 // input
 
 ### prepend: 
 same as append, but adding new data before existing data.
-```<<command > <key> <flags> <exptime> <bytes> [noreply]```  
-Example: prepend mykey 0 60 15 // input
+```<<command > <key> <bytes> [noreply]```  
+Example: prepend mykey 15 // input
 
 ### cas: 
 check And Set (or Compare And Swap). An operation that stores data, but only if no one else has updated the data since you read it last. Useful for resolving race conditions on updating cache data.

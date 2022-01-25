@@ -27,45 +27,60 @@ In your terminal, type: ruby memcached-server.rb <hostname> <port>
 ## Using Memcached:
 The Client sends certain commands:
 
-### set: store this data, possibly overwriting any existing data.
+### set:
+store this data, possibly overwriting any existing data.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```
 
-### add: store this data, only if it does not already exist.
+### add: 
+store this data, only if it does not already exist.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```
 
-### replace: store this data, but only if the data already exists. Almost never used, and exists for protocol completeness (set, add, replace, etc)
+### replace: 
+store this data, but only if the data already exists. Almost never used, and exists for protocol completeness (set, add, replace, etc)
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```
 
-### append: add this data after the last byte in an existing item. This does not allow you to extend past the item limit. Useful for managing lists.
+### append: 
+add this data after the last byte in an existing item. This does not allow you to extend past the item limit. Useful for managing lists.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```
 
-### prepend: same as append, but adding new data before existing data.
+### prepend: 
+same as append, but adding new data before existing data.
 ```<<command > <key> <flags> <exptime> <bytes> [noreply]```
 
-### cas: check And Set (or Compare And Swap). An operation that stores data, but only if no one else has updated the data since you read it last. Useful for resolving race conditions on updating cache data.
+### cas: 
+check And Set (or Compare And Swap). An operation that stores data, but only if no one else has updated the data since you read it last. Useful for resolving race conditions on updating cache data.
 ```<<command > <key> <flags> <exptime> <bytes> <casToken> [noreply]```
 
 ## Uses of:
 
-### key: the client define it and under wich asks to store the data.
+### key: 
+the client define it and under wich asks to store the data.
 
-### flags: is a 4byte space that is stored alongside of the main value.
+### flags: 
+it's a 4byte space that is stored alongside of the main value.
 
-### exptime: is expiration time. If it's 0, the item never expires.
+### exptime: 
+it's expiration time. If it's 0, the item never expires.
 
-### bytes: is the number of bytes in the input.
+### bytes: 
+it's the number of bytes in the input.
 
-### casToken: it's a unique integer value came from an existing key.
+### casToken: 
+it's a unique integer value came from an existing key.
 
-### noreply: it's an optional parameter that intructs to the server to no send the reply.
+### noreply: 
+it's an optional parameter that intructs to the server to no send the reply.
 
-### input: it's a chunk of arbitrary 8-bit data of length form bytes.
+### input: 
+it's a chunk of arbitrary 8-bit data of length form bytes.
 
 ## Server Replies:
 
-### STORED: to indicate success.
+### STORED: 
+to indicate success.
 
-### NOT_STORED: the data wasn't stored.
+### NOT_STORED: 
+the data wasn't stored.
 
 ### EXISTS: indicate the item you are trying to store with CAS has been modified since you last fetched it.
 

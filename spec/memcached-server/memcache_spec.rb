@@ -1,7 +1,7 @@
 require_relative '../../memcached-server.rb'
 include MemcachedServer
 
-RSpec.describe Memcache do
+RSpec.describe Memcached do
 
     before(:each) do 
 

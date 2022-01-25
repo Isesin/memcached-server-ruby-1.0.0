@@ -8,7 +8,7 @@ RSpec.describe Server do
         @server = Server.new('localhost', 2000)
     end
 
-    describe "#validate_command" do
+    describe "#validateCommand" do
 
         context "when success" do
             let(:valid_commmands) {{
@@ -24,7 +24,7 @@ RSpec.describe Server do
                 valid_end: "END\n"
     
             }}
-            let(:valid_results) { valid_commmands.each_value.map { | value | @server.validate_command(value) } }
+            let(:valid_results) { valid_commmands.each_value.map { | value | @server.validateCommand(value) } }
 
             it "returns a valid command match" do
 
@@ -37,7 +37,7 @@ RSpec.describe Server do
 
         context "when failure" do
             let(:invalid_command) { "gats a b c" }
-            let(:invalid_result) { @server.validate_command(invalid_command) }
+            let(:invalid_result) { @server.validateCommand(invalid_command) }
 
             it "returns nil" do
                 expect(invalid_result).to be nil

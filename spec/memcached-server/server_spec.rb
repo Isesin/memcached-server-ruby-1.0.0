@@ -12,6 +12,7 @@ RSpec.describe Server do
     describe "#validateCommand" do
 
         context "when success" do
+            #Establece los comandos validos
             let(:valid_commmands) {{
 
                 valid_get: "get a b c\n",
@@ -37,6 +38,7 @@ RSpec.describe Server do
         end
 
         context "when failure" do
+            #crea objeto con comandos invalidos
             let(:invalid_command) { "gats a b c" }
             let(:invalid_result) { @server.validateCommand(invalid_command) }
 
@@ -47,7 +49,7 @@ RSpec.describe Server do
     end
 
     describe "#read_bytes" do
-
+        
         let(:data_chunk) { @server.read_bytes(connection, 4) }
         let(:connection) { @server.accept() }
         

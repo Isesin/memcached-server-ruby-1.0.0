@@ -54,7 +54,7 @@ module MemcachedServer
         END_ = /END/.freeze
         
     end
-
+   
     module Fail
         #Fallas en comandos, cliente o servidor.
         ERROR = "ERROR\r\n".freeze

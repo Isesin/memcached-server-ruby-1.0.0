@@ -24,7 +24,7 @@ RSpec.describe Item do
             end
             
         end
-
+  
         context "when never expires" do
             #Creamo un objeto "x" con una funcion con valores indistintos para probar el metodo.
             let(:never_expired_item) { Item.new("b", 0, 0, 5, "value") }

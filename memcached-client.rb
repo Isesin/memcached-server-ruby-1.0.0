@@ -14,7 +14,7 @@ listener = Thread.new {
   end
 }
 
-speaker = Thread.new {
+speaker = Thread.new { 
   loop do
       command = STDIN.gets()
       socket.puts(command)

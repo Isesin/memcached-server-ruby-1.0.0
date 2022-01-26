@@ -9,7 +9,7 @@ RSpec.describe Memcached do
         @storage = @memcache.storage
 
         @item_a = Item.new("a", 0, 0, 5, "val_a")
-
+   
     end
     #Ejecutamos el metodo purgeKeys establecido en memcache.rb
     describe "#purgeKeys" do

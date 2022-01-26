@@ -90,7 +90,7 @@ module MemcachedServer
       end
       return retrieved
     end
-
+     
   #Formato de comando GETS.
     def gets(keys)
       @server.puts("gets #{keys}")

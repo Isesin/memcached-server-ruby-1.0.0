@@ -8,7 +8,7 @@ module MemcachedServer
         attr_accessor :bytes
         attr_accessor :input    
         attr_accessor :casToken
-        
+          
         attr_accessor :lock
         #ESTABLECIENDO EL TOKEN 0
         @@lastcasToken = 0

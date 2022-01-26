@@ -24,9 +24,9 @@ In your terminal, type: rspec
 ## How to run:
 1. Clone the repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 2. Install Ruby 3.0.3 without DevKit
-3. In your text editor terminal instal RSPEC: gem install rspec
-4. Run server:
-In 1 terminal:
+3. In your IDE terminal install RSPEC: gem install rspec
+4. Open two terminals, the first one is going to act as a SERVER. The other as a CLIENT:
+
 ### Server:
 In your terminal, type: ruby memcached-server.rb <"hostname / IP"> <"port">  
 Example: ruby memcached-server.rb localhost 123456

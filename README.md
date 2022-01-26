@@ -23,7 +23,7 @@ In your terminal, type: rspec
 
 ## How to run:
 1. Clone the repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
-2. Install Ruby 3.0.3 without Devtools
+2. Install Ruby 3.0.3 without DevKit
 3. In VS terminal instal RSPEC: gem install rspec
 4. Run server:
 In 1 terminal:

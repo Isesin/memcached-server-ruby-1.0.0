@@ -1,5 +1,4 @@
-require_relative '../../server/memcached-server.rb'
-include MemcachedServer
+require_relative '../../server/src/memcache.rb'
 
 RSpec.describe Memcached do
 

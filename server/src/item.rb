@@ -1,4 +1,4 @@
-module MemcachedServer
+
 
     #DEFINIENDO VALORES SEGUN USOS DE MEMCACHED
     class Item
@@ -52,4 +52,3 @@ module MemcachedServer
             return false
         end
     end
-end

@@ -1,10 +1,9 @@
 require 'socket'
 require_relative './memcache.rb'
-require_relative './constants.rb'
+require_relative './constants/commands.rb'
 
-module MemcachedServer
-    
-    #Implementamos un servidor Memcached
+
+#Implementamos un servidor Memcached
     class Server
         #Presentamos los parametros de un servidor TCP
         attr_reader :host
@@ -75,20 +74,20 @@ module MemcachedServer
                 reply = @mc.send(name.to_sym, key, flags, exptime, bytes, data) unless data.nil?()
                 connection.puts(reply) unless noreply || reply.nil?()
 
-                return false
+            return false
 
-            when 'append', 'prepend'
+        when 'append', 'prepend'
 
-                key = validCommand[:key]
-                bytes = validCommand[:bytes].to_i
-                data = self.read_bytes(connection, bytes)
+            key = validCommand[:key]
+            bytes = validCommand[:bytes].to_i
+            data = self.read_bytes(connection, bytes)
 
-                reply = @mc.send(name.to_sym, key, bytes, data) unless data.nil?()
-                connection.puts(reply) unless noreply || reply.nil?()
+            reply = @mc.send(name.to_sym, key, bytes, data) unless data.nil?()
+            connection.puts(reply) unless noreply || reply.nil?()
 
-                return false
+        return false
 
-            when 'cas'
+        when 'cas'
 
                 key = validCommand[:key]
                 flags = validCommand[:flags].to_i
@@ -103,71 +102,69 @@ module MemcachedServer
 
                 return false
                 
-            when 'get'
+        when 'get'
 
-                keys = validCommand[:keys].split(' ')
-                items = @mc.get(keys)
+            keys = validCommand[:keys].split(' ')
+            items = @mc.get(keys)
 
-                for item in items
-                    connection.puts(ServerReply::GET % [item.key, item.flags, item.bytes, item.input]) if item
-                    connection.puts(ServerReply::END_)
-                end
+            for item in items
+                connection.puts(ServerReply::GET % [item.key, item.flags, item.bytes, item.input]) if item
+                connection.puts(ServerReply::END_)
+            end
 
-                return false
+            return false
 
-            when 'gets'
+        when 'gets'
 
-                keys = validCommand[:keys].split(' ')
-                items = @mc.get(keys)
+            keys = validCommand[:keys].split(' ')
+            items = @mc.get(keys)
 
-                for item in items
+            for item in items
                     connection.puts(ServerReply::GETS % [item.key, item.flags, item.bytes, item.casToken, item.input]) if item
                     connection.puts(ServerReply::END_)
-                end
-
-                return false
-
-            else
-                #End deja de correr el cliente.
-                return true
-                
             end
+
+            return false
+
+        else
+            #End deja de correr el cliente.
+            return true
+                
         end
+    end
         
 
-        #Leemos los bytes para corroborar cuando se carga un item
-        def read_bytes(connection, bytes)
+    #Leemos los bytes para corroborar cuando se carga un item
+    def read_bytes(connection, bytes)
 
-            data_chunk = connection.read(bytes + 1).chomp()
+         data_chunk = connection.read(bytes + 1).chomp()
 
-            if data_chunk.bytesize() != bytes
+        if data_chunk.bytesize() != bytes
                 connection.puts(Fail::CLIENT_ERROR % [" bad data chunk"])
-                return nil
-            end
-
-            return data_chunk
-        end
-
-        #Validando el comando ingresado, si es incorrecto, nos devuelve nil (nada).
-        def validateCommand(command)
-
-            valid_formats = Commands.constants.map{| key | Commands.const_get(key)}
-
-            valid_formats.each do | form |
-
-                validCommand = command.match(form)
-                return validCommand unless validCommand.nil?
-                
-            end
-
             return nil
         end
 
-        #Aceptra conexiones de un TCP SOCKET
-        def accept()
-            return @connection.accept()
+        return data_chunk
+    end
+
+    #Validando el comando ingresado, si es incorrecto, nos devuelve nil (nada).
+    def validateCommand(command)
+
+        valid_formats = Commands.constants.map{| key | Commands.const_get(key)}
+
+        valid_formats.each do | form |
+
+            validCommand = command.match(form)
+            return validCommand unless validCommand.nil?
+                
         end
 
+        return nil
+    end
+
+    #Aceptra conexiones de un TCP SOCKET
+    def accept()
+            return @connection.accept()
     end
 
 end

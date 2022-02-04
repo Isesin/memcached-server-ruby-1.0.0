@@ -1,5 +1,4 @@
-require_relative '../../server/memcached-server.rb'
-include MemcachedServer
+require_relative '../../server/src/item.rb'
 
 RSpec.describe Item do
     #El test utiliza el metodo expired? establecido en item.rb

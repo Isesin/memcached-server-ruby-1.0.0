@@ -1,6 +1,4 @@
-module MemcachedServer
-
-    module Commands
+class Commands
 
 
         #Comandos de almacenamiento segun Memcached.
@@ -20,9 +18,9 @@ module MemcachedServer
         #Cierre
         #El gion bajo es por el uso de la palabra reservada END
         END_ = /^(?<name>END)\n$/.freeze
-    end
+end
 
-    module ServerReply
+class ServerReply
 
         # Almacenamiento exitoso.
         STORED = "STORED\n".freeze
@@ -42,9 +40,9 @@ module MemcachedServer
         
         END_ = "END\n".freeze
 
-    end
+end
 
-    module ReplyFormat
+class ReplyFormat
 
         # Formato en que el servidor devuelve los items
         GET = /VALUE (?<key>\w+) (?<flags>\d+) (?<bytes>\d+)/.freeze
@@ -53,14 +51,13 @@ module MemcachedServer
         #Final de un proceso.
         END_ = /END/.freeze
         
-    end
+end
    
-    module Fail
+class Fail
         #Fallas en comandos, cliente o servidor.
         ERROR = "ERROR\r\n".freeze
         CLIENT_ERROR = "CLIENT_ERROR%s\r\n".freeze
         SERVER_ERROR = "SERVER_ERROR%s\r\n".freeze
         
-    end
 
 end

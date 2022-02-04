@@ -1,6 +1,5 @@
 require 'socket'
-require_relative '../../server/memcached-server.rb'
-include MemcachedServer
+require_relative '../../server/src/server.rb'
 
 RSpec.describe Server do
 

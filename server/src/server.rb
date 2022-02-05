@@ -1,6 +1,6 @@
 require 'socket'
 require_relative './memcache.rb'
-require_relative './constants/commands.rb'
+require_relative './constants.rb'
 
 
 #Implementamos un servidor Memcached

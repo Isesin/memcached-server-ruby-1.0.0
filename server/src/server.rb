@@ -2,7 +2,7 @@ require 'socket'
 require_relative './memcache.rb'
 require_relative './constants.rb'
 
-module MemcachedServer
+
 
 #Implementamos un servidor Memcached
 
@@ -169,5 +169,4 @@ def accept()
         return @connection.accept()
 end
 
-end
 end

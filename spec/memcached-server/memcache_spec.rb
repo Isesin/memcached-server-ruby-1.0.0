@@ -14,7 +14,7 @@ RSpec.describe Memcached do
     describe "#purgeKeys" do
              
         context "when success" do
-            #Creamo dos objetos (expired_item y item_to-espire) con una funcion con valores indistintos para probar el metodo.
+            #Creamos dos objetos (expired_item y item_to-espire) con una funcion con valores indistintos para probar el metodo.
             let(:expired_item)   { Item.new("key", 0, -1, 3, "val") }
             let(:item_to_expire) { Item.new("kee", 0, 0.1, 3, "val") }
             before(:each) do 

@@ -121,3 +121,7 @@ an alternative get command for using with CAS. Returns a CAS identifier (a uniqu
 
 ### END: 
 to end the session, use: END
+
+
+# JMX   
+Using JMeter I checked that the server does support 1015 new connections in 1 second.

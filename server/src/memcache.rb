@@ -1,6 +1,7 @@
 require_relative './item.rb'
   
-
+module MemcachedServer
+    
 
     # Creamos la clase que procese los comandos
     # y almacenamiento segun Memcached
@@ -105,3 +106,4 @@ require_relative './item.rb'
         end
     end
 
+end
